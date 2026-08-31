@@ -60,59 +60,62 @@
     .latin{font-family:"Oswald",sans-serif;letter-spacing:.06em}
 
     /* ===== hero ===== */
-    .hero{text-align:center;padding:34px 0 8px}
-    .kicker{
-      font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.42em;
-      font-size:13px;color:var(--steel);font-weight:500;
-      display:inline-block;padding:8px 4px 8px 0;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);
-      margin-bottom:22px;
-    }
+    .hero{text-align:center;padding:14px 0 2px}
     .coin-frame{
-      position:relative;display:inline-block;width:min(100%,520px);margin:0 auto;
+      position:relative;display:inline-block;width:min(64%,270px);margin:0 auto;
+      animation:riseIn .6s ease both, floatY 5.5s ease-in-out .8s infinite;
     }
     .coin-frame::before{
-      content:"";position:absolute;inset:-6% -6% 0;z-index:-1;
-      background:radial-gradient(closest-side, rgba(193,18,31,.45), rgba(193,18,31,0) 70%);
-      filter:blur(6px);
+      content:"";position:absolute;inset:-9% -9% 2%;z-index:-1;
+      background:radial-gradient(closest-side, rgba(193,18,31,.5), rgba(193,18,31,0) 70%);
+      filter:blur(8px);animation:glow 4s ease-in-out infinite;
     }
     .coin-frame img{
       display:block;width:100%;height:auto;border-radius:10px;
       border:1px solid var(--line2);box-shadow:var(--shadow), 0 0 0 6px rgba(255,255,255,.02);
+      transition:transform .3s ease;
     }
+    .coin-frame:hover img{transform:scale(1.03) rotate(-.5deg)}
     .hero h1{
-      font-weight:900;font-size:clamp(30px,8vw,52px);margin:26px 0 6px;
-      text-shadow:0 2px 20px rgba(193,18,31,.35);
+      font-weight:900;font-size:clamp(23px,6.2vw,36px);margin:12px 0 3px;
+      text-shadow:0 2px 20px rgba(193,18,31,.35);animation:riseIn .6s ease .15s both;
     }
     .hero h1 .en{
       display:block;font-family:"Oswald",sans-serif;font-weight:600;letter-spacing:.14em;
-      text-transform:uppercase;font-size:clamp(15px,3.4vw,20px);color:var(--steel);margin-top:8px;
+      text-transform:uppercase;font-size:clamp(12px,3vw,16px);color:var(--steel);margin-top:4px;
     }
-    .hero .tagline{color:var(--muted);font-size:clamp(15px,3.6vw,19px);max-width:540px;margin:14px auto 0}
+    .hero .tagline{color:var(--muted);font-size:clamp(13px,3.3vw,16px);max-width:500px;margin:9px auto 0;animation:riseIn .6s ease .28s both}
     .hero .tagline b{color:var(--ink);font-weight:700}
 
     /* red divider */
-    .rule{display:flex;align-items:center;justify-content:center;gap:14px;margin:30px 0}
+    .rule{display:flex;align-items:center;justify-content:center;gap:14px;margin:16px 0}
     .rule::before,.rule::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--line2),transparent)}
     .rule span{color:var(--blood-bright);font-size:18px;letter-spacing:.3em}
 
     /* ===== detail cards ===== */
-    .details{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:6px 0 4px}
+    .details{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:4px 0}
     .card{
       background:linear-gradient(180deg,var(--panel2),var(--panel));
-      border:1px solid var(--line);border-radius:var(--radius);padding:18px 14px;text-align:center;
-      position:relative;overflow:hidden;
+      border:1px solid var(--line);border-radius:var(--radius);padding:13px 10px;text-align:center;
+      position:relative;overflow:hidden;transition:transform .2s ease, border-color .2s ease;
+      animation:riseIn .5s ease both;
     }
+    .card:hover{transform:translateY(-3px);border-color:var(--line2)}
+    .details .card:nth-child(1){animation-delay:.38s}
+    .details .card:nth-child(2){animation-delay:.47s}
+    .details .card:nth-child(3){animation-delay:.56s}
     .card::before{content:"";position:absolute;top:0;right:0;left:0;height:2px;background:linear-gradient(90deg,transparent,var(--blood),transparent);opacity:.7}
-    .card .ico{font-size:24px;filter:grayscale(.2)}
-    .card .lbl{font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.15em;font-size:11px;color:var(--muted2);margin-top:8px}
-    .card .val{font-weight:800;font-size:clamp(17px,4.6vw,22px);margin-top:3px}
+    .card .ico{font-size:21px;filter:grayscale(.2)}
+    .card .lbl{font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:.15em;font-size:10px;color:var(--muted2);margin-top:6px}
+    .card .val{font-weight:800;font-size:clamp(15px,4vw,19px);margin-top:2px}
     .card .val.num{font-family:"Oswald",sans-serif;letter-spacing:.03em}
 
     /* ===== location ===== */
     .loc{
-      margin-top:14px;background:linear-gradient(180deg,var(--panel2),var(--panel));
-      border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px;
-      display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+      margin-top:10px;background:linear-gradient(180deg,var(--panel2),var(--panel));
+      border:1px solid var(--line);border-radius:var(--radius);padding:13px 16px;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+      animation:riseIn .5s ease .64s both;
     }
     .loc .where{display:flex;align-items:center;gap:12px}
     .loc .where .ico{font-size:26px}
@@ -127,25 +130,26 @@
     .waze:hover{background:#0e1830;border-color:#2e5fa8}
 
     /* ===== CTA ===== */
-    .cta-row{text-align:center;margin:26px 0 8px}
+    .cta-row{text-align:center;margin:16px 0 2px}
     .cta{
       display:inline-block;text-decoration:none;cursor:pointer;
       background:linear-gradient(180deg,var(--blood-bright),var(--blood));
-      color:#fff;font-weight:900;font-size:20px;padding:16px 48px;border-radius:12px;border:0;
+      color:#fff;font-weight:900;font-size:18px;padding:13px 40px;border-radius:12px;border:0;
       box-shadow:0 12px 30px rgba(193,18,31,.4), inset 0 1px 0 rgba(255,255,255,.25);
       letter-spacing:.02em;transition:transform .08s, box-shadow .15s;
+      animation:riseIn .5s ease .72s both, ctaPulse 2.8s ease-in-out 1.8s infinite;
     }
     .cta:hover{box-shadow:0 14px 36px rgba(193,18,31,.55), inset 0 1px 0 rgba(255,255,255,.25)}
     .cta:active{transform:translateY(1px)}
 
     /* ===== form ===== */
     .section-title{
-      text-align:center;font-weight:900;font-size:clamp(24px,6vw,34px);margin:8px 0 4px;
+      text-align:center;font-weight:900;font-size:clamp(20px,5vw,27px);margin:6px 0 3px;
     }
-    .section-sub{text-align:center;color:var(--muted);margin:0 0 24px;font-size:15px}
+    .section-sub{text-align:center;color:var(--muted);margin:0 0 16px;font-size:14px}
     .form-card{
       background:linear-gradient(180deg,var(--panel2),var(--panel));
-      border:1px solid var(--line);border-radius:18px;padding:26px 22px;box-shadow:var(--shadow);
+      border:1px solid var(--line);border-radius:18px;padding:20px 18px;box-shadow:var(--shadow);
     }
     .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     .field{display:flex;flex-direction:column;gap:7px}
@@ -161,13 +165,14 @@
     input[type=text]:focus{outline:none;border-color:var(--blood);box-shadow:0 0 0 3px rgba(193,18,31,.22)}
 
     /* rsvp options */
-    .rsvp{display:flex;flex-direction:column;gap:11px}
+    .rsvp{display:flex;flex-direction:column;gap:9px}
     .opt{position:relative;cursor:pointer;user-select:none}
     .opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
     .opt .box{
-      display:flex;align-items:center;gap:13px;padding:15px 16px;border-radius:12px;
+      display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;
       background:#0c0c0e;border:1.5px solid var(--line2);transition:all .14s;
     }
+    .opt:active .box{transform:scale(.99)}
     .opt .box .em{font-size:22px;width:26px;text-align:center}
     .opt .box .txt{font-weight:700;font-size:16px}
     .opt .box .tick{margin-inline-start:auto;width:20px;height:20px;border-radius:50%;border:2px solid var(--line2);transition:all .14s}
@@ -209,12 +214,24 @@
     .tbtn.waze-t{border-color:#1b3a6b;color:#7db2ff}
 
     /* ===== footer ===== */
-    .foot{text-align:center;margin-top:44px;color:var(--muted2)}
+    .foot{text-align:center;margin-top:26px;color:var(--muted2)}
     .foot .badge{
       font-family:"Oswald";text-transform:uppercase;letter-spacing:.3em;font-size:13px;color:var(--steel);
       padding:10px 0;border-top:1px solid var(--line);display:inline-block;
     }
     .foot .sub{display:block;font-size:12px;margin-top:6px;letter-spacing:.05em}
+
+    /* ===== animations ===== */
+    @keyframes riseIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+    @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+    @keyframes glow{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
+    @keyframes ctaPulse{
+      0%,100%{box-shadow:0 12px 30px rgba(193,18,31,.4), inset 0 1px 0 rgba(255,255,255,.25)}
+      50%{box-shadow:0 12px 40px rgba(193,18,31,.7), inset 0 1px 0 rgba(255,255,255,.25)}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{animation:none !important;transition:none !important}
+    }
 
     @media (max-width:560px){
       .grid{grid-template-columns:1fr}
@@ -233,7 +250,6 @@
 
     <!-- Hero -->
     <header class="hero">
-      <span class="kicker latin">Save the Date</span>
       <div class="coin-frame">
         <img src="assets/coin.jpg" alt="פלוגת סימור · גדוד 43 — ערב סימוראי חגיגי" />
       </div>
@@ -288,13 +304,9 @@
 
     <form class="form-card" id="regForm" novalidate>
       <div class="grid">
-        <div class="field">
-          <label for="firstName">שם <span class="req">*</span></label>
-          <input id="firstName" name="firstName" type="text" autocomplete="given-name" placeholder="שם פרטי" required>
-        </div>
-        <div class="field">
-          <label for="lastName">שם משפחה <span class="req">*</span></label>
-          <input id="lastName" name="lastName" type="text" autocomplete="family-name" placeholder="שם משפחה" required>
+        <div class="field full">
+          <label for="fullName">שם מלא <span class="req">*</span></label>
+          <input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="שם פרטי ומשפחה" required>
         </div>
         <div class="field full">
           <label for="email">אימייל <span class="req">*</span></label>
@@ -374,7 +386,7 @@
       e.preventDefault();
       errMsg.textContent = '';
 
-      if (!form.firstName.value.trim() || !form.lastName.value.trim() || !form.email.value.trim()) {
+      if (!form.fullName.value.trim() || !form.email.value.trim()) {
         form.reportValidity(); return;
       }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value.trim())) {
@@ -389,10 +401,9 @@
       }
 
       const data = {
-        firstName: form.firstName.value.trim(),
-        lastName:  form.lastName.value.trim(),
-        email:     form.email.value.trim(),
-        rsvp:      rsvpEl.value
+        fullName: form.fullName.value.trim(),
+        email:    form.email.value.trim(),
+        rsvp:     rsvpEl.value
       };
 
       submitBtn.disabled = true;
@@ -419,7 +430,7 @@
 
     function showThanks(data){
       const coming = data.rsvp !== 'לצערי לא אגיע';
-      const name = data.firstName;
+      const name = (data.fullName || '').split(' ')[0];
       document.getElementById('thanksEmoji').textContent = coming ? '🔥' : '🙏';
       document.getElementById('thanksTitle').textContent = coming ? 'נרשמת, נתראה בקרב!' : 'תודה על העדכון';
       document.getElementById('thanksMsg').innerHTML = coming

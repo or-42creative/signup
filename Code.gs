@@ -31,7 +31,7 @@ const CAL_URL =
 const NOTIFY_EMAIL = '';
 // ==================================================
 
-const HEADERS = ['חותמת זמן', 'שם', 'שם משפחה', 'אימייל', 'הגעה'];
+const HEADERS = ['חותמת זמן', 'שם מלא', 'אימייל', 'הגעה'];
 
 function doPost(e) {
   const lock = LockService.getScriptLock();
@@ -39,12 +39,12 @@ function doPost(e) {
     lock.waitLock(20000);
     const data  = parseInput_(e);
     const sheet = getSheet_();
-    sheet.appendRow([ new Date(), data.firstName || '', data.lastName || '', data.email || '', data.rsvp || '' ]);
+    sheet.appendRow([ new Date(), data.fullName || '', data.email || '', data.rsvp || '' ]);
 
     if (data.email) sendConfirmation_(data);
     if (NOTIFY_EMAIL) {
       MailApp.sendEmail(NOTIFY_EMAIL, 'אישור הגעה חדש · ' + EVENT_NAME,
-        (data.firstName || '') + ' ' + (data.lastName || '') + ' — ' + (data.rsvp || ''));
+        (data.fullName || '') + ' — ' + (data.rsvp || ''));
     }
     return json_({ ok: true });
   } catch (err) {
@@ -82,7 +82,7 @@ function getSheet_() {
 /** שליחת מייל אישור לנרשם (מותאם לפי סוג ההגעה). */
 function sendConfirmation_(data) {
   const coming = (data.rsvp || '') !== 'לצערי לא אגיע';
-  const name   = (data.firstName || '').trim();
+  const name   = (data.fullName || '').trim().split(' ')[0];
   const hello  = name ? ('שלום ' + name + ',') : 'שלום,';
   const subject = (coming ? 'נתראה! · ' : 'תודה על העדכון · ') + EVENT_NAME;
 
