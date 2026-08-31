@@ -26,7 +26,7 @@ const CAL_URL =
   '&dates=20260907T183000/20260907T220000' +
   '&ctz=Asia/Jerusalem' +
   '&location=' + encodeURIComponent(EVENT_PLACE) +
-  '&details='  + encodeURIComponent('יום ההכרזה על פלוגת סימור המתחדשת.\n\nניווט ב-Waze: ' + WAZE_URL);
+  '&details='  + encodeURIComponent('יומולדת לסימור.\n\nניווט ב-Waze: ' + WAZE_URL);
 // אופציונלי: מייל לקבלת התראה על כל אישור (השאירו ריק לביטול):
 const NOTIFY_EMAIL = '';
 // ==================================================
